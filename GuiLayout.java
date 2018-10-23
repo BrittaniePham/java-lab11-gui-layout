@@ -118,6 +118,24 @@ public class GuiLayout extends JFrame {
 				}
 			}
 		});
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int currentBlue = 0;
+				for(int i = 0; i < labels.size(); ++i) {					
+					if(labels.get(i).getBackground() == Color.BLUE) {
+						currentBlue = i;
+					}	
+				}
+				if(currentBlue == labels.size() - 1) {
+					labels.get(0).setBackground(Color.BLUE);
+					labels.get(labels.size() - 1).setBackground(Color.YELLOW);
+				} else {
+					labels.get(currentBlue + 1).setBackground(Color.BLUE);
+					labels.get(currentBlue).setBackground(Color.YELLOW);
+				}
+			}
+		});
 	}
 
 }
